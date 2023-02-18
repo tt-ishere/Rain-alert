@@ -5,9 +5,9 @@ LAT = 8.11728
 LON = -5.60095
 WEATHER_ENDPOINT = "http://api.weatherapi.com/v1/forecast.json"
 WILL_IT_RAIN = []
-account_sid = "AC32bfbbb6f5c1a52b3e4b2e422e6092a1"
-auth_token = "a034f796bf57d81e218a02c2f3013d3a"
-parameters = {"key": "7d86e1f3f28b4f98aa8141406231102", "q": {"Accra"}}
+account_sid = "your_sid_acount"
+auth_token = "your-sid_auth_code"
+parameters = {"key": "your_weather_api_key", "q": {"Accra"}}
 
 response = requests.get(WEATHER_ENDPOINT, params=parameters)
 
@@ -25,7 +25,7 @@ if "1" in WILL_IT_RAIN:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="It's going to rain today. Remember to bring an ☔",
-        from_="+17407167716",
-        to="+233268125555",
+        from_="contact_to_send_alert",
+        to="contact_to_recieve_alert",
     )
     print(message.status)
